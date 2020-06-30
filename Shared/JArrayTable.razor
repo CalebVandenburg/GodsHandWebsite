@@ -1,0 +1,31 @@
+﻿@using System.Collections.Generic;
+@using System.Linq;
+@using System.Web;
+@using System.Diagnostics;
+@using System.Threading.Tasks;
+@using System.Net;
+@using System.Net.Http;
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Linq;
+@using System.Text;
+
+<table class="table @CustomTableClass">
+    @TableHeader
+    <tbody>
+        @foreach (var item in Items)
+        {
+            @ItemRow(item)
+        }
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public RenderFragment TableHeader { get; set; }
+    [Parameter]
+    public string CustomTableClass { get; set; }
+    [Parameter]
+    public RenderFragment<JToken> ItemRow { get; set; }
+    [Parameter]
+    public JArray Items { get; set; }
+}

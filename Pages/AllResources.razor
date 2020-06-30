@@ -1,0 +1,22 @@
+﻿@page "/AllResources"
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Web;
+@using System.Diagnostics;
+@using System.Threading.Tasks;
+@using System.Net;
+@using System.Net.Http;
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Linq;
+@using System.Text;
+<h1>Hello, world!</h1>
+
+<button class="btn btn-primary" @onclick="GetDatabase">Get Sheets</button>
+
+@code {
+    void GetDatabase()
+    {
+        GodsHandWebsite.DatabaseClasses.DatabaseConnection databaseConnection = new GodsHandWebsite.DatabaseClasses.DatabaseConnection();
+        databaseConnection.ConnectToDatabase();
+    }
+}
